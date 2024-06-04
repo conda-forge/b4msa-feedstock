@@ -1,5 +1,5 @@
 {% set name = "b4msa" %}
-{% set version = "2.2.2" %}
+{% set version = "2.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/b4msa-{{ version }}.tar.gz
-  sha256: 2ff9b9528d1ff6e659cacf551b9a8c978b363926080b54096146b911a1160b9c
+  sha256: cd373bc90aa6e521d513c7773019ded87df5ec5280e0200dbfde57c2580985e0
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 4
+  number: 0
 
 requirements:
   host:
