@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/b4msa-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/b4msa-{{ version }}.tar.gz
   sha256: 6ae8058e7ae0dd2064e570f079902d153b366ff40cb9cd3c77d240114c7e7b50
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - scikit-learn
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - scikit-learn
     - microtc
 
@@ -31,6 +31,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/b4msa/
